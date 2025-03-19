@@ -10,5 +10,12 @@ export default defineConfig({
   integrations: [mdx(), sitemap(), icon()],
   vite: {
     plugins: [tailwindcss()],
+    server: {
+      allowedHosts: ["020e-213-104-203-77.ngrok-free.app"],
+    },
   },
+  hubspot: {
+    portalId: "123456", // Replace with your actual Portal ID
+    formId: "abcdefg-1234-hijk-5678-lmnopqrstu" // Replace with your actual Form GUID
+  }
 });

@@ -1,16 +1,17 @@
 ---
 import { Picture } from "astro:assets";
-import heroImage from "@/assets/hero.png";
+import heroImage from "@/assets/renu-hero-image.png";
 import Link from "@/components/ui/link.astro";
 import { Icon } from "astro-icon/components";
+import BookingButton from "@/components/bookingbutton.astro";
 ---
 
 <main
-  class="grid lg:grid-cols-2 place-items-center pt-16 pb-8 md:pt-12 md:pb-24">
+  class="grid lg:grid-cols-2 place-items-center pt-24 pb-8 md:pt-12 md:pb-24">
   <div class="py-6 md:order-1 hidden md:block">
     <Picture
       src={heroImage}
-      alt="Astronaut in the air"
+      alt="Migrate Legacy Systems with AI-Driven Efficiency"
       widths={[200, 400, 600]}
       sizes="(max-width: 800px) 100vw, 620px"
       loading="eager"
@@ -19,35 +20,20 @@ import { Icon } from "astro-icon/components";
   </div>
   <div>
     <h1
-      class="text-5xl lg:text-6xl xl:text-7xl font-bold lg:tracking-tight xl:tracking-tighter">
-      Marketing website done with Astro
+      class="text-4xl lg:text-5xl xl:text-6xl font-display font-bold lg:tracking-tight xl:tracking-tighter">
+       Modernize Legacy Applications with AI
     </h1>
     <p class="text-lg mt-4 text-slate-600 max-w-xl">
-      Astroship is a starter template for startups, marketing websites & landing
-      pages.<wbr /> Built with Astro.build and TailwindCSS. You can quickly create
-      any website with this starter.
+       Leverage the power of generative AI to streamline legacy application upgrades.
+   </p>
+    <p class="text-lg mt-4 text-slate-600 max-w-xl">
+       Improve efficiency, reduce downtime, and optimize your codebase for the future. From upgrading frameworks to generating test suites and documentation, re-nu streamlines your transformation-fast, efficient, and risk-free.
     </p>
     <div class="mt-6 flex flex-col sm:flex-row gap-3">
-      <Link
+      <BookingButton id="calendar-booking-button2"
         href="#"
-        href="https://web3templates.com/templates/astroship-starter-website-template-for-astro"
-        target="_blank"
-        class="flex gap-1 items-center justify-center"
-        rel="noopener">
-        <Icon class="text-white w-5 h-5" name="bx:bxs-cloud-download" />
-
-        Download for Free
-      </Link>
-      <Link
-        size="lg"
-        style="outline"
-        rel="noopener"
-        href="https://github.com/surjithctly/astroship"
-        class="flex gap-1 items-center justify-center"
-        target="_blank">
-        <Icon class="text-black w-4 h-4" name="bx:bxl-github" />
-        GitHub Repo
-      </Link>
+        size="md">Book a FREE Consultation
+      </BookingButton>
     </div>
   </div>
 </main>

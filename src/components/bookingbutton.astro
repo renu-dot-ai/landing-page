@@ -1,0 +1,94 @@
+---
+import Button from "./ui/button.astro";
+const {
+  size = "md",
+  style = "primary",
+  block,
+  id = "calendar-booking-button",
+  class: className,
+  ...rest
+} = Astro.props;
+const sizes = {
+  md: "px-5 py-2.5",
+  lg: "px-6 py-3",
+};
+const bookingURL = "https://calendar.google.com/calendar/appointments/schedules/AcZssZ24VUVr8qCEJvNE-wftKVfiPXkEPwZHb8dq1v1atIttIoBwsfj3wE30tLxIZW0golQwByeKCgOx?gv=true";
+---
+
+<Button
+  type="button"
+  size={size}
+  style={style}
+  block={block}
+  id={id}
+  class={className}
+  {...rest}
+>
+  <slot/>
+</Button>
+
+<!-- Popup/Modal Container -->
+<div id="calendar-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+  <div class="bg-white rounded-lg shadow-xl w-full max-w-4xl h-3/4 flex flex-col">
+    <!-- Modal Header -->
+    <div class="flex justify-between items-center p-4 border-b">
+      <h3 class="text-xl font-semibold">Book an Appointment</h3>
+      <button id="close-modal" class="text-gray-500 hover:text-gray-700">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
+
+    <!-- Modal Body with iframe -->
+    <div class="flex-grow p-4">
+      <iframe
+        id="booking-iframe"
+        src=""
+        class="w-full h-full border-0"
+        frameborder="0"
+        allowfullscreen
+      ></iframe>
+    </div>
+  </div>
+</div>
+
+<script define:vars={{bookingURL, buttonId: id}}>
+  document.addEventListener('DOMContentLoaded', function() {
+    const openButton = document.getElementById(buttonId);
+    const modal = document.getElementById('calendar-modal');
+    const closeButton = document.getElementById('close-modal');
+    const iframe = document.getElementById('booking-iframe');
+
+    // Set iframe source when opening modal
+    openButton.addEventListener('click', function() {
+      iframe.src = bookingURL;
+      modal.classList.remove('hidden');
+      document.body.style.overflow = 'hidden'; // Prevent scrolling behind modal
+    });
+
+    // Close modal function
+    function closeModal() {
+      modal.classList.add('hidden');
+      document.body.style.overflow = ''; // Restore scrolling
+      iframe.src = ''; // Clear iframe for better performance
+    }
+
+    // Close on button click
+    closeButton.addEventListener('click', closeModal);
+
+    // Close on outside click
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    });
+
+    // Close on escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+        closeModal();
+      }
+    });
+  });
+</script>
