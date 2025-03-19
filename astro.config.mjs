@@ -6,16 +6,12 @@ import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://astroship.web3templates.com",
+  site: "https://renu-ai.netlify.app",
   integrations: [mdx(), sitemap(), icon()],
   vite: {
     plugins: [tailwindcss()],
     server: {
-      allowedHosts: ["020e-213-104-203-77.ngrok-free.app"],
+      allowedHosts: [],
     },
-  },
-  hubspot: {
-    portalId: "123456", // Replace with your actual Portal ID
-    formId: "abcdefg-1234-hijk-5678-lmnopqrstu" // Replace with your actual Form GUID
   }
 });
