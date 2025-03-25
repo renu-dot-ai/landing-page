@@ -1,0 +1,72 @@
+---
+import { SEO } from "astro-seo";
+import Footer from "@/components/footer.astro";
+import Navbar from "@/components/navbar/navbar.astro";
+import "@fontsource-variable/inter/index.css";
+import "@fontsource-variable/bricolage-grotesque";
+import "../styles/global.css";
+
+export interface Props {
+  title: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
+
+const resolvedImageWithDomain = new URL(
+  "/opengraph.png",
+  Astro.site
+).toString();
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Doto:wght,ROND@900,48&display=swap" rel="stylesheet">
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- <link rel="preload" as="image" href={src} alt="Hero" /> -->
+    <SEO
+      title={title}
+      description="."
+      canonical={canonicalURL}
+      twitter={{
+      creator: "@sathyavijayan",
+      site: "@sathyavijayan",
+      card: "summary_large_image",
+      }}
+      openGraph={{
+      basic: {
+      url: canonicalURL,
+      type: "website",
+      title: title,
+      image: resolvedImageWithDomain,
+      },
+      image: {
+      alt: title,
+      },
+      }}
+    />
+  </head>
+  <body class="flex flex-col space-y-0 bg-cyan-100">
+    <div class="mb-10">
+      <Navbar />
+    </div>
+    <slot />
+    <Footer />
+    <style is:global>
+      /* Improve Page speed */
+      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+      img {
+        content-visibility: auto;
+      }
+    </style>
+  </body>
+</html>

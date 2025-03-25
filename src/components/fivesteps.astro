@@ -1,0 +1,50 @@
+---
+// @ts-ignore
+import { Icon } from "astro-icon/components";
+import Steps from '@/components/ui/steps.astro';
+import Step from '@/components/ui/step.astro';
+
+const currentStep = 10;
+
+const features = [
+{
+"title": "AI-Powered Discovery & Roadmap",
+"description": "We analyze your codebase, dependencies, production behavior, and logs to generate a precise roadmap. This ensures risk assessment, prioritization, and a clear transformation strategy before migration begins.",
+"icon": "ph:compass-duotone"
+},
+{
+"title": "Automated Documentation & Use Case Extraction",
+"description": "AI extracts business logic, APIs, configurations, and hidden dependencies from your legacy system—turning unstructured code into structured, actionable documentation.",
+"icon": "tabler:file-code"
+},
+{
+"title": "AI-Generated Test Suites & Synthetic Data",
+"description": "Ensure a seamless migration with automatically generated test cases and synthetic test data that mimic real-world scenarios—minimizing post-migration failures.",
+"icon": "material-symbols:checklist"
+},
+{
+"title": "Intelligent Code Migration & AI-Driven Refactoring",
+"description": "Modernize applications 10x faster with AI-powered code generation tailored to your tech stack. Whether it’s Python 2 to 3, JDK 8 to 17, monolith to cloud-native, or migrating to modern frameworks—we make it seamless.",
+"icon": "mdi:source-branch"
+},
+{
+"title": "Continuous Optimization & Smart Enhancements",
+"description": "Post-migration, we ensure performance tuning, security validation, and compliance checks. Our AI-driven monitoring keeps your modernized system resilient, scalable, and future-proof.",
+"icon": "solar:chart-2-bold"
+}
+];
+---
+
+<Steps currentStep={currentStep}>
+  {features.map((feature, index) => (
+    <Step index={index} active={currentStep === index}>
+      <div class="flex flex-col space-y-2">
+        <div class="flex items-center space-x-2">
+          <Icon name={feature.icon} class="text-2xl" />
+          <h3 class="text-xl font-bold">{feature.title}</h3>
+        </div>
+        <p class="text-gray-600">{feature.description}</p>
+      </div>
+    </Step>
+  ))}
+</Steps>

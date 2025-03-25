@@ -4,15 +4,69 @@ import Cta from "@/components/cta.astro";
 import Features from "@/components/features.astro";
 import Hero from "@/components/hero.astro";
 import Logos from "@/components/logos.astro";
-import Layout from "@/layouts/Layout.astro";
+import NewLayout from "@/layouts/NewLayout.astro";
+import FiveSteps from "@/components/fivesteps.astro";
+import Migrations from "@/components/migrations.astro";
+
 ---
 
-<Layout title="re-nu.ai | Accelerate Legacy Code Modernization with AI"
-  descriotion = "Re-nu.ai takes your old applications and gives them a fresh start—fast, smart, and AI-powered. Modernization doesn’t have to be a headache!">
-  <Container>
-    <Hero />
-    <Features />
-    <!--Logos /-->
-    <Cta />
-  </Container>
-</Layout>
+<NewLayout title="fast-fwd.ai | Accelerate Legacy Code Modernization with AI"
+  description="fast-fwd.ai takes your old applications and gives them a fresh start—fast, smart, and AI-powered. Modernization doesn’t have to be a headache!">
+
+  <div class="flyer-row">
+    <Container class="flyer-box" padding="px-10 pt-5 pb-5">
+      <h1 class="text-3xl lg:text-5xl xl:text-5xl  pb-1 xl:tracking-tighter">
+        Modernize
+      </h1>
+      <h1 class="text-6xl lg:text-8xl xl:text-8xl font-bold font-retro pb-1">
+        Legacy Applications
+      </h1>
+      <h1 class="text-3xl lg:text-5xl xl:text-5xl pb-1 xl:tracking-tighter">
+         with AI
+      </h1>
+    </Container>
+  </div>
+
+  <div class="flyer-row">
+    <Container class="flyer-style-container" padding="px-5">
+      <p class="text-lg text-slate-600">
+        Leverage the power of generative AI to streamline legacy application upgrades.
+      </p>
+      <p class="text-lg text-slate-600">
+        Improve efficiency, reduce downtime, and optimize your codebase for the future. From upgrading frameworks to generating test suites and documentation, fast-fwd streamlines your transformation—fast, efficient, and risk-free.
+      </p>
+    </Container>
+  </div>
+
+  <div class="flyer-row">
+    <Container class="flyer-title" padding="px-10 pt-2 pb-2">
+      <h1 class="text-4xl lg:text-6xl xl:text-6xl pb-1 xl:tracking-tighter">
+        FIVE STEPS TO SUCCESS
+      </h1>
+    </Container>
+  </div>
+
+  <div class="flyer-row pt-1">
+    <Container padding="px-10 pt-2 pb-2 w-full">
+      <FiveSteps/>
+    </Container>
+  </div>
+
+  <div class="flyer-row">
+    <Container class="border-t-2 border-black bg-gray-100">
+      <h1 class="pt-5 text-4xl lg:text-4xl xl:text-4xl pb-1 xl:tracking-tighter"> Modernization for Any Application – Big or Small
+      </h1>
+      <p class="text-lg text-slate-600 pb-5">
+No matter the size or complexity of your legacy application, from monolithic enterprise systems to lightweight apps, our AI-powered approach is customized to meet the unique needs
+
+      </p>
+       <Migrations/>
+    </Container>
+  </div>
+
+  <div class="flyer-row">
+    <Container padding="bg-black px-10 pt-2 pb-2 w-full">
+      <Cta />
+    </Container>
+  </div>
+</NewLayout>

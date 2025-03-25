@@ -1,0 +1,30 @@
+---
+/*
+  This component renders a word cloud.
+  Pass an array of objects with 'word' and 'count' via the `words` prop.
+  The `count` determines the size of the word in the cloud.
+*/
+const { words = [] } = Astro.props;
+
+// Function to calculate font size based on word frequency
+function calculateFontSize(count) {
+  const minSize = 12; // minimum font size
+  const maxSize = 48; // maximum font size
+  const maxCount = Math.max(...words.map(word => word.count)); // maximum count
+  const minCount = Math.min(...words.map(word => word.count)); // minimum count
+
+  const fontSize = minSize + ((count - minCount) / (maxCount - minCount)) * (maxSize - minSize);
+  return `${fontSize}px`;
+}
+---
+
+<div class="flex flex-wrap gap-4">
+  {words.map(({ word, count }) => (
+    <span
+      class={`cursor-pointer transition-all duration-300 transform hover:scale-110`}
+      style={`font-size: ${calculateFontSize(count)};`}
+    >
+      {word}
+    </span>
+  ))}
+</div>

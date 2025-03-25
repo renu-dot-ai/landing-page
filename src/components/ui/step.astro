@@ -1,0 +1,18 @@
+---
+// Step.astro
+const { index, active = false } = Astro.props;
+---
+<div class="flex items-start space-x-4">
+  <!-- Step Indicator -->
+  <div class:list={[
+    "w-10 h-10 flex items-center justify-center rounded-full font-bold text-lg",
+    active ? "bg-black text-white" : "bg-gray-300 text-black"
+  ]}>
+    {index + 1}
+  </div>
+
+  <!-- Rich Step Content -->
+  <div class="flex-1">
+    <slot />
+  </div>
+</div>

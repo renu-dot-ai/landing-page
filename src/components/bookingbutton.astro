@@ -1,8 +1,8 @@
 ---
 import Button from "./ui/button.astro";
 const {
-  size = "md",
-  style = "primary",
+  size = "sm",
+  style = "",
   block,
   id = "calendar-booking-button",
   class: className,
@@ -18,12 +18,11 @@ const bookingURL = "https://calendar.google.com/calendar/appointments/schedules/
 <Button
   type="button"
   size={size}
-  style={style}
   block={block}
   id={id}
-  class={className}
+  class="cta-btn-primary"
   {...rest}
->
+ >
   <slot/>
 </Button>
 

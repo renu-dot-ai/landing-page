@@ -1,0 +1,40 @@
+---
+/*
+  This component renders a tag cloud.
+  Pass an array of tags via the `tags` prop.
+*/
+const { tags = [] } = Astro.props;
+
+// Function to choose a random size class
+function randomSizeClass() {
+  const sizes = ['text-sm', 'text-base', 'text-lg', 'text-xl'];
+  return sizes[Math.floor(Math.random() * sizes.length)];
+}
+
+// Function to choose a random color class
+function randomColorClass() {
+  const colors = [
+  "text-white, bg-indigo-300",
+  "text-black, bg-yellow-300",
+  "text-white, bg-teal-300",
+  "text-white, bg-green-300",
+  "text-white, bg-pink-300",
+  "text-white, bg-purple-300",
+  "text-black, bg-orange-300",
+  "text-white, bg-blue-300",
+  "text-white, bg-red-300",
+  "text-black, bg-lime-300"
+];
+  return colors[Math.floor(Math.random() * colors.length)];
+}
+---
+
+<div class="flex flex-wrap gap-2">
+  {tags.map(tag => (
+    <span
+      class={`cursor-pointer px-3 py-1 rounded-full border border-gray-200 hover:bg-gray-200 transition-colors)} ${randomColorClass()}`}
+    >
+      {tag}
+    </span>
+  ))}
+</div>

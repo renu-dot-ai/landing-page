@@ -7,9 +7,10 @@
     Bricolage Grotesque Variable, Inter Variable, Inter, ui-sans-serif,
     system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-display:
-      'Space Grotesk', 'sans-serif';
+  --font-retro:
+   'Doto', 'sans-serif';
 }
+
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
@@ -27,4 +28,67 @@
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
   }
+}
+
+@layer components {
+    .flyer-box {
+        @apply bg-yellow-300 border-black;
+        position: relative;
+        z-index: 10;
+        box-shadow: 12px 12px 0px black;
+    }
+
+    .flyer-row {
+        @apply flex pt-10 pb-5;
+    }
+
+    .flyer-style-container > * {
+        @apply p-0 m-0; /* Remove both padding and margin */
+        @apply pt-2 pb-2;
+    }
+
+    .flyer-box > * {
+        @apply capitalize;
+        font-family: Arial, sans-serif;
+        text-transform: uppercase;
+    }
+
+    .flyer-title {
+        @apply bg-rose-200 border-t border-b-6 border-black w-full;
+        position: relative;
+
+    }
+
+    .cta-btn-secondary {
+        @apply bg-white text-black border border-black px-6 py-2 font-semibold;
+        box-shadow: 4px 4px 0px black; /* Black shadow */
+        transition: all 0.2s ease-in-out;
+    }
+
+    .cta-btn-secondary:hover {
+        box-shadow: 2px 2px 0px black; /* Stronger shadow on hover */
+        transform: translateY(1px); /* Slight hover lift effect */
+    }
+
+    .cta-btn-primary {
+        @apply bg-black text-white border border-black px-6 py-2 font-semibold;
+        box-shadow: 4px 4px 0px gray; /* White shadow */
+        transition: all 0.2s ease-in-out;
+    }
+
+    .cta-btn-primary:hover {
+        box-shadow: 2px 2px 0px gray; /* Stronger white shadow on hover */
+        transform: translateY(1px); /* Slight hover lift effect */
+    }
+
+    .cta-btn-inverted {
+        @apply bg-white text-black border border-black px-6 py-2 font-semibold;
+        box-shadow: 4px 4px 0px gray; /* Black shadow */
+        transition: all 0.2s ease-in-out;
+    }
+
+    .cta-btn-inverted:hover {
+        box-shadow: 2px 2px 0px gray; /* Stronger shadow on hover */
+        transform: translateY(1px); /* Slight hover lift effect */
+    }
 }

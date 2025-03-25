@@ -1,0 +1,59 @@
+---
+import TagCloud from '@/components/ui/TagCloud.astro';
+import WordCloud from '@/components/ui/WordCloud.astro';
+
+
+const myTags = [
+"Monolithic to Microservices",
+"Python 2 to 3 Migration",
+"JDK Upgrade",
+"On-Premise to Cloud",
+"Cordova to React Native",
+"Xamarin to Flutter",
+"Legacy Web to Modern Frameworks",
+"VB6 to .NET",
+"Windows Server to Linux",
+"Oracle to PostgreSQL",
+"SQL Server to MySQL",
+"Mainframe to Cloud",
+"On-Premise Database to Cloud DB",
+"C to Java",
+"Java to Kotlin",
+"PHP to Node.js",
+".NET to JavaScript/TypeScript",
+"On-Premise Infrastructure to AWS/Azure/GCP",
+"SOAP to REST API",
+"Legacy UI to React/Angular/Vue",
+"Monolith to Serverless",
+"IBM MDM to Reltio",
+"Legacy Data Warehouse to Modern Data Lakes/Cloud Warehouse (Snowflake, BigQuery, Redshift)",
+"Legacy Order Management to Cloud-Based OMS (e.g., Shopify Plus, Oracle NetSuite, Salesforce OMS)",
+"Legacy E-Commerce to Shopify/Shopify Plus",
+"Custom E-Commerce Platform to Shopify",
+"Magento to Shopify",
+"WooCommerce to Shopify",
+"SAP Commerce to Shopify",
+"Custom ERP to Cloud-Based ERP (e.g., NetSuite, SAP S/4HANA)",
+"Legacy Supply Chain Systems to Cloud-Based SCM (e.g., Oracle SCM Cloud)"
+]
+
+
+const myWords = [
+{ word: "Legacy UI to React/Angular/Vue", count: 5 },
+{ word: "Legacy WMS - ", count: 5 },
+{ word: "Monolithic to Microservices", count: 8 },
+{ word: "Python 2 to 3 Migration", count: 6 },
+{ word: "Web Development", count: 4 },
+{ word: "JDK Upgrade", count: 3 },
+{ word: "VB6 to .NET", count: 7 },
+{ word: "On-Premise Database to Cloud DB", count: 9 },
+{ word: "C to Java", count: 2 },
+{ word: "Java to Kotlin", count: 2 }
+
+];
+
+---
+
+<TagCloud tags={myTags} />
+
+<!-- WordCloud words={myWords} /-->

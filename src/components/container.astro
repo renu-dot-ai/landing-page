@@ -1,7 +1,7 @@
 ---
-const { class: className } = Astro.props;
+const { class: className, padding = "px-5", margin="max-w-4xl" } = Astro.props;
 ---
 
-<div class:list={["max-w-(--breakpoint-xl) mx-auto px-5", className]}>
+<div class:list={[margin, "mx-auto", padding, className]}>
   <slot />
 </div>
