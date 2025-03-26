@@ -9,7 +9,7 @@ const { VITE_POSTHOG_API_KEY, VITE_POSTHOG_API_HOST } = loadEnv(process.env.mode
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://fast-fwd.netlify.app",
+  site: "https://fast-fwd.ai",
   env: {
     schema: {
       VITE_POSTHOG_API_KEY: envField.string({ context: "client", access: "public", default: JSON.stringify(VITE_POSTHOG_API_KEY) }),
@@ -18,7 +18,9 @@ export default defineConfig({
   },
   integrations: [
     mdx(),
-    sitemap(),
+    sitemap({
+      filter: (page) => (/.*contact.*/g).test(page)
+    }),
     icon({ iconSets: ["ph", "solar"] }), // Correctly add Phosphor icon set here
   ],
   vite: {
