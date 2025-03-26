@@ -7,14 +7,14 @@ import "@fontsource-variable/bricolage-grotesque";
 import "../styles/global.css";
 
 export interface Props {
-  title: string;
+title: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 
 const resolvedImageWithDomain = new URL(
-  "/opengraph.png",
-  Astro.site
+"/opengraph.png",
+Astro.site
 ).toString();
 
 const { title } = Astro.props;
@@ -38,20 +38,20 @@ const { title } = Astro.props;
       description="."
       canonical={canonicalURL}
       twitter={{
-        creator: "@sathyavijayan",
-        site: "@sathyavijayan",
-        card: "summary_large_image",
+      creator: "@sathyavijayan",
+      site: "@sathyavijayan",
+      card: "summary_large_image",
       }}
       openGraph={{
-        basic: {
-          url: canonicalURL,
-          type: "website",
-          title: title,
-          image: resolvedImageWithDomain,
-        },
-        image: {
-          alt: title,
-        },
+      basic: {
+      url: canonicalURL,
+      type: "website",
+      title: title,
+      image: resolvedImageWithDomain,
+      },
+      image: {
+      alt: title,
+      },
       }}
     />
   </head>
@@ -60,11 +60,11 @@ const { title } = Astro.props;
     <slot />
     <Footer />
     <style is:global>
-      /* Improve Page speed */
-      /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
-      img {
-        content-visibility: auto;
-      }
+    /* Improve Page speed */
+    /* https://css-tricks.com/almanac/properties/c/content-visibility/ */
+    img {
+      content-visibility: auto;
+    }
     </style>
   </body>
 </html>
